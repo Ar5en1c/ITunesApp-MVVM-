@@ -28,6 +28,7 @@ class MainArtistViewController: UIViewController {
 //MARK: Calling FetchData Function
 extension MainArtistViewController {
     func loadData() {
+        activityIndicator.startAnimating()
         viewModel.fetchData()
     }
 }
