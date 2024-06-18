@@ -10,6 +10,7 @@ import UIKit
 @testable import ITunesApp_MVVM_
 
 class MainArtistViewControllerTests: XCTestCase {
+    
     var viewController: MainArtistViewController!
     var viewModel: MockArtistDataViewModel!
     

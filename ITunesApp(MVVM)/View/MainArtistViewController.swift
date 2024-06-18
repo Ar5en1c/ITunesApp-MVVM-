@@ -12,24 +12,25 @@ class MainArtistViewController: UIViewController {
 
     @IBOutlet weak var mainArtistTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var artistSearchBar: UISearchBar!
     
     var viewModel = ArtistDataViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainArtistTableView.dataSource = self
+        artistSearchBar.delegate = self
         viewModel.delegate = self
-        loadData()
+        loadData(searchTerm: "")
     }
     
 }
 
 //MARK: Calling FetchData Function
 extension MainArtistViewController {
-    func loadData() {
+    func loadData(searchTerm: String) {
         activityIndicator.startAnimating()
-        viewModel.fetchData()
+        viewModel.fetchData(searchTerm: searchTerm)
     }
 }
 
@@ -60,3 +61,13 @@ extension MainArtistViewController: UITableViewDataSource {
 }
 
 
+// MARK: SearchBar Delegate
+extension MainArtistViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard var searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+        // Replace spaces with "+"
+        searchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
+        loadData(searchTerm: searchTerm)
+    }
+}

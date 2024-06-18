@@ -7,20 +7,26 @@
 
 import Foundation
 
-
-//MARK: Fetch Data function with Specific Type
+// MARK: - Fetch Data function with Specific Type
 class ArtistDataViewModel {
     weak var delegate: ArtistDataDelegate?
     private var artistInfoList: [ArtistInfo] = []
     
-    func fetchData() {
-        ApiClass.shared.fetchData(url: Constants.iTunesAPIURL.rawValue) { (searchResult: SearchResult?) in
+    func fetchData(searchTerm: String) {
+        // Creating URL based on the searchBar input searchTerm
+        let urlString = "\(Constants.iTunesBaseAPIURL.rawValue)\(searchTerm)\(Constants.limit25.rawValue)"
+        
+        ApiClass.shared.fetchData(url: urlString) { (searchResult: SearchResult?) in
             guard let searchResult = searchResult else {
                 print(ErrorMessages.noDataMessage.rawValue)
                 return
             }
+            
             self.artistInfoList = searchResult.results
-            self.delegate?.didFetchArtistData()
+            
+            DispatchQueue.main.async {
+                self.delegate?.didFetchArtistData()
+            }
         }
     }
     
@@ -28,6 +34,7 @@ class ArtistDataViewModel {
         return artistInfoList.count
     }
     
+// Returning the artist info for specific index
     func getArtistInfo(at index: Int) -> ArtistInfo? {
         guard index >= 0 && index < artistInfoList.count else {
             return nil
@@ -35,11 +42,10 @@ class ArtistDataViewModel {
         return artistInfoList[index]
     }
     
-    // This method is for testing purpose to access artistInfoList
     #if DEBUG
+    // This method is for testing purposes to access artistInfoList
     func setArtistInfoListForTesting(_ artistInfoList: [ArtistInfo]) {
         self.artistInfoList = artistInfoList
     }
     #endif
 }
-    

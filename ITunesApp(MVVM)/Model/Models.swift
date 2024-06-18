@@ -17,4 +17,5 @@ struct ArtistInfo: Codable {
     let primaryGenreName: String?
     let collectionPrice: Double?
     let artworkUrl60: String?
+    let trackName: String?
 }

@@ -10,7 +10,8 @@ import Foundation
 
 //MARK: Consants stored in one place for better management
 enum Constants: String {
-    case iTunesAPIURL = "https://itunes.apple.com/search?term=a"
+    case iTunesBaseAPIURL = "https://itunes.apple.com/search?term="
+    case limit25 = "&limit=25"
     case artistCellName = "ITuneArtistNameCell"
     case nA = "N/A"
     case genre = "Genre"

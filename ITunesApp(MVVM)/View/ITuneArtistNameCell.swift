@@ -31,8 +31,11 @@ class ITuneArtistNameCell: UITableViewCell {
 // MARK: assigning data to the cell
 extension ITuneArtistNameCell {
     func assignData() {
-        artistNameLabel.text = "\(dataRecieved?.artistName ?? "")"
-        artistSongInfoLabel.text = "\(Constants.genre.rawValue): \(dataRecieved?.primaryGenreName ?? ""), \(Constants.country.rawValue): \(dataRecieved?.country ?? "")"
+//        artistNameLabel.text = "\(dataRecieved?.artistName ?? "")"
+//        artistSongInfoLabel.text = "\(Constants.genre.rawValue): \(dataRecieved?.primaryGenreName ?? ""), \(Constants.country.rawValue): \(dataRecieved?.country ?? "")"
+        
+        artistNameLabel.text = "\(dataRecieved?.trackName ?? "")"
+        artistSongInfoLabel.text = "\(dataRecieved?.artistName ?? "")"
         
         if let price = dataRecieved?.collectionPrice {
             priceButton.setBasicBorderStyling(width: 1, radius: 5)
