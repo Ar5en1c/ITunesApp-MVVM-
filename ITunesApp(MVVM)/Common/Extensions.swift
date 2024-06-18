@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    
     func setBasicBorderStyling(width: Int, radius: Int) {
         self.layer.borderWidth = CGFloat(width)
         self.layer.cornerRadius = CGFloat(radius)
@@ -25,9 +24,7 @@ extension UIButton {
     }
 }
 
-
 extension UIImageView {
-    
     func getImageFromServer(artworkURL: String) {
         ApiClass.shared.fetchImage(from: artworkURL) { [weak self] imageData in
             DispatchQueue.main.async {

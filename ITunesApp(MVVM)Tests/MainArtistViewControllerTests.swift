@@ -11,39 +11,51 @@ import UIKit
 
 class MainArtistViewControllerTests: XCTestCase {
     var viewController: MainArtistViewController!
+    var viewModel: MockArtistDataViewModel!
     
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         viewController = storyboard.instantiateViewController(withIdentifier: "MainArtistViewController") as? MainArtistViewController
         viewController.loadViewIfNeeded()
-        viewController.viewModel = MockArtistDataViewModel()
+        
+        viewModel = MockArtistDataViewModel()
+        viewController.viewModel = viewModel
         viewController.viewModel.delegate = viewController
     }
     
     override func tearDown() {
         viewController = nil
+        viewModel = nil
         super.tearDown()
     }
     
     func testLoadData() {
+        viewModel.setArtistInfoListForTesting([
+            ArtistInfo(artistName: "Test Artist", country: "US", primaryGenreName: "Pop", collectionPrice: 9.99, artworkUrl60: "url")
+        ])
+        
         viewController.loadData()
-        XCTAssertEqual(viewController.artistInfoList.count, 1)
+        
+        XCTAssertEqual(viewModel.getTotalArtists(), 1)
     }
     
     func testDidFetchArtistData() {
-        let mockData = [ArtistInfo(artistName: "Test Artist", country: "US", primaryGenreName: "Pop", collectionPrice: 9.99, artworkUrl60: "url")]
+        let mockData = [
+            ArtistInfo(artistName: "Test Artist1", country: "US", primaryGenreName: "Pop", collectionPrice: 9.99, artworkUrl60: "url"),
+            ArtistInfo(artistName: "Test Artist2", country: "US", primaryGenreName: "Pop2", collectionPrice: 9.99, artworkUrl60: "url2")
+        ]
         
-        viewController.didFetchArtistData(mockData)
+        viewModel.setArtistInfoListForTesting(mockData)
+        viewController.didFetchArtistData()
         
-        XCTAssertEqual(viewController.artistInfoList.count, 1)
-        XCTAssertEqual(viewController.artistInfoList.first?.artistName, "Test Artist")
+        XCTAssertEqual(viewModel.getTotalArtists(), 2)
+        XCTAssertEqual(viewModel.getArtistInfo(at: 0)?.artistName, "Test Artist1")
     }
 }
 
 class MockArtistDataViewModel: ArtistDataViewModel {
     override func fetchData() {
-        let mockData = SearchResult(results: [ArtistInfo(artistName: "Test Artist", country: "US", primaryGenreName: "Pop", collectionPrice: 9.99, artworkUrl60: "url")])
-        self.delegate?.didFetchArtistData(mockData.results)
+        self.delegate?.didFetchArtistData()
     }
 }

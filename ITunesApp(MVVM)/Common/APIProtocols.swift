@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: Artist Data Delagate protocol for artist data transfer
 protocol ArtistDataDelegate: AnyObject {
-    func didFetchArtistData(_ data: [ArtistInfo])
+    func didFetchArtistData()
 }
 
 
