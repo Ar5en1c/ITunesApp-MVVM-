@@ -11,12 +11,17 @@ import Foundation
 class ArtistDataViewModel {
     weak var delegate: ArtistDataDelegate?
     private var artistInfoList: [ArtistInfo] = []
+    private var apiClass: ApiClass
+    
+    init(apiClass: ApiClass) {
+        self.apiClass = apiClass
+    }
     
     func fetchData(searchTerm: String) {
         // Creating URL based on the searchBar input searchTerm
         let urlString = "\(Constants.iTunesBaseAPIURL.rawValue)\(searchTerm)\(Constants.limit25.rawValue)"
         
-        ApiClass.shared.fetchData(url: urlString) { (searchResult: SearchResult?) in
+        apiClass.fetchData(url: urlString) { (searchResult: SearchResult?) in
             guard let searchResult = searchResult else {
                 print(ErrorMessages.noDataMessage.rawValue)
                 return

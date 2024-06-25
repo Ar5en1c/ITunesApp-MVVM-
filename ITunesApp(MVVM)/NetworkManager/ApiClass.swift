@@ -5,7 +5,7 @@ class ApiClass {
     static let shared = ApiClass()
 
     // MARK: Fetch Data function with Generic Type for JSON Decoder
-    func fetchData<T: Decodable>(url: String, completion: @escaping (T?) -> ()) {
+    func fetchData<T : Codable>(url: String, completion: @escaping (T?) -> ()) {
         guard let serverURL = URL(string: url) else {
             completion(nil)
             return

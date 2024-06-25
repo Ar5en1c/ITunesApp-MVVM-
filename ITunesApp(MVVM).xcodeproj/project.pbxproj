@@ -21,8 +21,10 @@
 		0C1077282C1CEEB600EB34B8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1077272C1CEEB600EB34B8 /* Extensions.swift */; };
 		0C10772A2C1CEEC600EB34B8 /* ITuneArtistNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1077292C1CEEC600EB34B8 /* ITuneArtistNameCell.swift */; };
 		0C10772C2C1CF37B00EB34B8 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10772B2C1CF37B00EB34B8 /* DataViewModel.swift */; };
-		0C1077302C20BEBB00EB34B8 /* APIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10772F2C20BEBB00EB34B8 /* APIProtocols.swift */; };
+		0C1077302C20BEBB00EB34B8 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C10772F2C20BEBB00EB34B8 /* Protocols.swift */; };
 		0C1077322C20DD6300EB34B8 /* MainArtistViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1077312C20DD6300EB34B8 /* MainArtistViewControllerTests.swift */; };
+		0C689D0F2C2618B1006A4235 /* MockApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C689D0E2C2618B1006A4235 /* MockApiClass.swift */; };
+		0C689D112C26242E006A4235 /* ApiTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C689D102C26242E006A4235 /* ApiTesting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,10 @@
 		0C1077272C1CEEB600EB34B8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0C1077292C1CEEC600EB34B8 /* ITuneArtistNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITuneArtistNameCell.swift; sourceTree = "<group>"; };
 		0C10772B2C1CF37B00EB34B8 /* DataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
-		0C10772F2C20BEBB00EB34B8 /* APIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocols.swift; sourceTree = "<group>"; };
+		0C10772F2C20BEBB00EB34B8 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0C1077312C20DD6300EB34B8 /* MainArtistViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainArtistViewControllerTests.swift; sourceTree = "<group>"; };
+		0C689D0E2C2618B1006A4235 /* MockApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClass.swift; sourceTree = "<group>"; };
+		0C689D102C26242E006A4235 /* ApiTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTesting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				0C1077312C20DD6300EB34B8 /* MainArtistViewControllerTests.swift */,
+				0C689D102C26242E006A4235 /* ApiTesting.swift */,
 			);
 			path = "ITunesApp(MVVM)Tests";
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0C1077222C1CEE9300EB34B8 /* ApiClass.swift */,
+				0C689D0E2C2618B1006A4235 /* MockApiClass.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -191,7 +197,7 @@
 			children = (
 				0C1077252C1CEEAE00EB34B8 /* Constants.swift */,
 				0C1077272C1CEEB600EB34B8 /* Extensions.swift */,
-				0C10772F2C20BEBB00EB34B8 /* APIProtocols.swift */,
+				0C10772F2C20BEBB00EB34B8 /* Protocols.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -332,8 +338,9 @@
 				0C10772C2C1CF37B00EB34B8 /* DataViewModel.swift in Sources */,
 				0C1077212C1CEE7600EB34B8 /* MainArtistViewController.swift in Sources */,
 				0C1076EA2C1CEC8500EB34B8 /* SceneDelegate.swift in Sources */,
-				0C1077302C20BEBB00EB34B8 /* APIProtocols.swift in Sources */,
+				0C1077302C20BEBB00EB34B8 /* Protocols.swift in Sources */,
 				0C1077232C1CEE9300EB34B8 /* ApiClass.swift in Sources */,
+				0C689D0F2C2618B1006A4235 /* MockApiClass.swift in Sources */,
 				0C10771F2C1CEE6000EB34B8 /* Models.swift in Sources */,
 				0C1077262C1CEEAE00EB34B8 /* Constants.swift in Sources */,
 				0C1077282C1CEEB600EB34B8 /* Extensions.swift in Sources */,
@@ -345,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C1077322C20DD6300EB34B8 /* MainArtistViewControllerTests.swift in Sources */,
+				0C689D112C26242E006A4235 /* ApiTesting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
