@@ -14,14 +14,14 @@ class MainArtistViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var artistSearchBar: UISearchBar!
     
-    var viewModel = ArtistDataViewModel()
+    var viewModel = ArtistDataViewModel(apiClass: ApiClass())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainArtistTableView.dataSource = self
         artistSearchBar.delegate = self
         viewModel.delegate = self
-        loadData(searchTerm: "")
+//        loadData(searchTerm: "")
     }
     
 }
@@ -29,8 +29,8 @@ class MainArtistViewController: UIViewController {
 //MARK: Calling FetchData Function
 extension MainArtistViewController {
     func loadData(searchTerm: String) {
-        activityIndicator.startAnimating()
         viewModel.fetchData(searchTerm: searchTerm)
+        self.activityIndicator.startAnimating()
     }
 }
 
