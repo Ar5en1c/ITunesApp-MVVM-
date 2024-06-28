@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 //MARK: Main view controller class which shows the artists name in a table view
 class MainArtistViewController: UIViewController {
+    var hud: MBProgressHUD!
 
     @IBOutlet weak var mainArtistTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var artistSearchBar: UISearchBar!
     
     var viewModel = ArtistDataViewModel(apiClass: ApiClass())
@@ -21,7 +23,7 @@ class MainArtistViewController: UIViewController {
         mainArtistTableView.dataSource = self
         artistSearchBar.delegate = self
         viewModel.delegate = self
-//        loadData(searchTerm: "")
+        
     }
     
 }
@@ -29,15 +31,17 @@ class MainArtistViewController: UIViewController {
 //MARK: Calling FetchData Function
 extension MainArtistViewController {
     func loadData(searchTerm: String) {
+        hud = MBProgressHUD.showAdded(to: view, animated: true)
         viewModel.fetchData(searchTerm: searchTerm)
-        self.activityIndicator.startAnimating()
+//        self.activityIndicator.startAnimating()
     }
 }
 
 extension MainArtistViewController: ArtistDataDelegate {
     func didFetchArtistData() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+//            self.activityIndicator.stopAnimating()
+            self.hud.hide(animated: true, afterDelay: 1)
             self.mainArtistTableView.reloadData()
         }
     }

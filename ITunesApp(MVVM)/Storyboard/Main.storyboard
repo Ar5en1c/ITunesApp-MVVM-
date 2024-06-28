@@ -81,11 +81,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="6GL-pq-vmp">
-                                <rect key="frame" x="0.0" y="381" width="393" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" systemColor="tableCellBlueTextColor"/>
-                            </activityIndicatorView>
                             <searchBar contentMode="redraw" barStyle="black" placeholder="search artist.." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYZ-aA-6NP">
                                 <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -108,7 +103,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="bcn-mr-989"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="6GL-pq-vmp" id="w1t-xq-8bX"/>
                         <outlet property="artistSearchBar" destination="PYZ-aA-6NP" id="2la-J5-olY"/>
                         <outlet property="mainArtistTableView" destination="1wd-bI-iqF" id="7ze-Ah-S0h"/>
                     </connections>
@@ -206,10 +200,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
